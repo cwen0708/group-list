@@ -3,35 +3,175 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>團購統計</title>
+  <title>團購力量大 📦</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f5f5f5; color: #333; padding: 16px; max-width: 800px; margin: 0 auto; }
-    h1 { font-size: 1.4em; margin-bottom: 8px; }
-    .meta { color: #888; font-size: 0.85em; margin-bottom: 20px; }
-    .card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-    .card h2 { font-size: 1.1em; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-    .card .price { color: #e74c3c; font-weight: bold; }
-    .card .deadline { color: #888; font-size: 0.85em; }
-    .card .status { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold; }
-    .status.open { background: #d4edda; color: #155724; }
-    .status.closed { background: #f8d7da; color: #721c24; }
-    .status.delivered { background: #cce5ff; color: #004085; }
-    table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.9em; }
-    th, td { padding: 6px 10px; text-align: left; border-bottom: 1px solid #eee; }
-    th { color: #888; font-weight: normal; }
-    .summary { background: #fff3cd; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
-    .summary h2 { font-size: 1.1em; margin-bottom: 8px; }
-    .no-data { text-align: center; padding: 60px 20px; color: #aaa; }
-    .no-data p { font-size: 1.2em; margin-bottom: 8px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      padding: 16px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    header {
+      background: #06c755;
+      color: white;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    header h1 { font-size: 1.4rem; margin-bottom: 4px; }
+    header p { font-size: 0.8rem; opacity: 0.85; }
+    h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 12px;
+      padding-left: 8px;
+      border-left: 4px solid #06c755;
+    }
+    .section { margin-bottom: 28px; }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    .card-title { font-size: 1.05rem; font-weight: 700; color: #222; }
+    .badge {
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .badge-active { background: #e6f9ee; color: #06c755; }
+    .badge-done { background: #eee; color: #888; }
+    .info-row {
+      font-size: 0.85rem;
+      color: #555;
+      margin-bottom: 6px;
+    }
+    .info-row span { font-weight: 600; color: #333; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.85rem;
+    }
+    th {
+      background: #f9f9f9;
+      text-align: left;
+      padding: 6px 8px;
+      color: #666;
+      font-weight: 600;
+      border-bottom: 1px solid #eee;
+    }
+    td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    tr:last-child td { border-bottom: none; }
+    .total-row {
+      font-size: 0.82rem;
+      color: #888;
+      margin-top: 8px;
+      text-align: right;
+    }
+    .total-row strong { color: #06c755; }
+    .history-meta { color: #888; font-size: 0.78rem; margin-top: 2px; }
   </style>
 </head>
 <body>
-  <h1>🛒 團購統計</h1>
-  <p class="meta">資料來源：LINE「團購力量大」群組</p>
-  <div class="no-data">
-    <p>尚無資料</p>
-    <span>排程每日 21:00 自動更新</span>
+
+<header>
+  <h1>🛒 團購力量大</h1>
+  <p>更新時間：2026-03-20（台灣時間）</p>
+</header>
+
+<!-- 進行中的團購 -->
+<div class="section">
+  <h2>進行中的團購</h2>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">好市多衛生紙</div>
+      <span class="badge badge-active">進行中</span>
+    </div>
+    <div class="info-row">💰 價格：<span>$335（特價）</span></div>
+    <div class="info-row">🏪 來源：<span>好市多（Costco）代購</span></div>
+    <div class="info-row">📅 開團日：<span>2026-03-19</span></div>
+    <div class="info-row">🔔 截止：<span>待老温確認</span></div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>成員</th>
+          <th>數量</th>
+          <th>備註</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>淑娟</td>
+          <td>5 包</td>
+          <td>3/19 回覆</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total-row">目前合計：<strong>5 包</strong>／1 人訂購</div>
   </div>
+</div>
+
+<!-- 歷史團購 -->
+<div class="section">
+  <h2>歷史團購</h2>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">好市多乳酪小餐包</div>
+      <span class="badge badge-done">已結束</span>
+    </div>
+    <div class="info-row">🏪 來源：<span>好市多（Costco）現場代購</span></div>
+    <div class="info-row">📅 日期：<span>2026-03-19</span></div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>成員</th>
+          <th>數量</th>
+          <th>備註</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pei Wen🌺</td>
+          <td>1 包</td>
+          <td>乳酪口味</td>
+        </tr>
+        <tr>
+          <td>韋如</td>
+          <td>1 包</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>楊馥菁</td>
+          <td>2-3 包</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total-row">合計：<strong>4-5 包</strong>・老温＆雅漪現場代購，雅漪已取貨配送</div>
+  </div>
+</div>
+
 </body>
 </html>
