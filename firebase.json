@@ -1,0 +1,7 @@
+{
+  "hosting": {
+    "site": "group-list",
+    "public": "public",
+    "ignore": ["firebase.json", "**/.*"]
+  }
+}
