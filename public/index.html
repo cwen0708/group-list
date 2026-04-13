@@ -54,6 +54,7 @@
       white-space: nowrap;
     }
     .badge-active { background: #e6f9ee; color: #06c755; }
+    .badge-delivering { background: #fff3e0; color: #e67e00; }
     .badge-done { background: #eee; color: #888; }
     .info-row {
       font-size: 0.85rem;
@@ -96,21 +97,107 @@
       color: #7c6200;
       margin-bottom: 12px;
     }
-    .history-meta { color: #888; font-size: 0.78rem; margin-top: 2px; }
+    .highlight-box {
+      background: #e8f9f0;
+      border: 1px solid #a3e6c0;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      color: #1a7a45;
+      margin-bottom: 16px;
+    }
+    .highlight-box strong { font-size: 0.95rem; }
   </style>
 </head>
 <body>
 
 <header>
   <h1>🛒 團購力量大</h1>
-  <p>更新時間：2026-04-12（台灣時間）</p>
+  <p>更新時間：2026-04-13（台灣時間）</p>
 </header>
 
-<!-- 最近 48 小時無新訊息提示 -->
+<!-- 最近 48 小時摘要 -->
 <div class="section">
-  <div class="notice">
-    📭 最近 48 小時無新團購訊息<br>
-    <small>4/11–4/12 群組無新訊息。（上次活動：4/7–4/9 收到廣告垃圾訊息，譚聖謙提醒詐騙，無新開團。）</small>
+  <div class="highlight-box">
+    🔔 <strong>最近 48 小時有 2 批到貨！</strong><br>
+    <small>4/11 花生到貨、4/12 黑輪酥酥到貨，老温陸續配送中。</small>
+  </div>
+</div>
+
+<!-- 到貨配送中 -->
+<div class="section">
+  <h2>到貨配送中</h2>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">🥜 黑輪酥酥</div>
+      <span class="badge badge-delivering">配送中</span>
+    </div>
+    <div class="info-row">📅 到貨日：<span>2026-04-12</span></div>
+    <div class="info-row">🚚 狀態：<span>老温 @All 通知，晚點配送</span></div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>成員</th>
+          <th>備註</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>全員通知</td>
+          <td>@All，訂購名單待確認</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total-row">曲曲兒 💖 已回覆感謝</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">🥜 花生</div>
+      <span class="badge badge-delivering">配送中</span>
+    </div>
+    <div class="info-row">📅 到貨日：<span>2026-04-11</span></div>
+    <div class="info-row">📍 取貨地點：<span>C棟（集中）</span></div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>成員</th>
+          <th>取貨狀態</th>
+          <th>備註</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>陳麗清</td>
+          <td>待取</td>
+          <td>夜班，老温晚上送</td>
+        </tr>
+        <tr>
+          <td>林小音（翔翔宥宥）</td>
+          <td>待取</td>
+          <td>週一（4/14）取貨</td>
+        </tr>
+        <tr>
+          <td>Jie</td>
+          <td>協調中</td>
+          <td>上白班，已回覆可取</td>
+        </tr>
+        <tr>
+          <td>曲曲兒 💖</td>
+          <td>待確認</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>洪妙妙</td>
+          <td>待確認</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total-row">共 <strong>5 人</strong>訂購／C棟集中取貨</div>
   </div>
 </div>
 
