@@ -3,315 +3,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>團購力量大 📦</title>
+  <title>團購力量大 — 摘要</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: #f5f5f5;
       color: #333;
       padding: 16px;
-      max-width: 640px;
+      max-width: 600px;
       margin: 0 auto;
     }
     header {
       background: #06c755;
-      color: white;
-      padding: 16px;
+      color: #fff;
       border-radius: 12px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    header h1 { font-size: 1.4rem; margin-bottom: 4px; }
-    header p { font-size: 0.8rem; opacity: 0.85; }
-    h2 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #555;
-      margin-bottom: 12px;
-      padding-left: 8px;
-      border-left: 4px solid #06c755;
-    }
-    .section { margin-bottom: 28px; }
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 12px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-    }
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 10px;
-    }
-    .card-title { font-size: 1.05rem; font-weight: 700; color: #222; }
-    .badge {
-      font-size: 0.72rem;
-      padding: 3px 8px;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
-    .badge-active { background: #e6f9ee; color: #06c755; }
-    .badge-delivering { background: #fff3e0; color: #e67e00; }
-    .badge-done { background: #eee; color: #888; }
-    .badge-pending { background: #f0f0ff; color: #5555cc; }
-    .info-row {
-      font-size: 0.85rem;
-      color: #555;
-      margin-bottom: 6px;
-    }
-    .info-row span { font-weight: 600; color: #333; }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-      font-size: 0.85rem;
-    }
-    th {
-      background: #f9f9f9;
-      text-align: left;
-      padding: 6px 8px;
-      color: #666;
-      font-weight: 600;
-      border-bottom: 1px solid #eee;
-    }
-    td {
-      padding: 6px 8px;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    tr:last-child td { border-bottom: none; }
-    .total-row {
-      font-size: 0.82rem;
-      color: #888;
-      margin-top: 8px;
-      text-align: right;
-    }
-    .total-row strong { color: #06c755; }
-    .notice {
-      background: #fffbe6;
-      border: 1px solid #ffe58f;
-      border-radius: 10px;
-      padding: 12px 16px;
-      font-size: 0.85rem;
-      color: #7c6200;
-      margin-bottom: 12px;
-    }
-    .highlight-box {
-      background: #e8f9f0;
-      border: 1px solid #a3e6c0;
-      border-radius: 10px;
-      padding: 12px 16px;
-      font-size: 0.85rem;
-      color: #1a7a45;
+      padding: 16px 20px;
       margin-bottom: 16px;
     }
-    .highlight-box strong { font-size: 0.95rem; }
-    .info-box {
-      background: #f0f4ff;
-      border: 1px solid #c0cffe;
-      border-radius: 10px;
-      padding: 12px 16px;
-      font-size: 0.85rem;
-      color: #3344aa;
-      margin-bottom: 12px;
+    header h1 { font-size: 1.2rem; font-weight: 700; }
+    header p { font-size: 0.8rem; opacity: 0.85; margin-top: 4px; }
+    .no-news {
+      background: #fff;
+      border-radius: 12px;
+      padding: 32px 20px;
+      text-align: center;
+      color: #888;
+      font-size: 0.95rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     }
+    .no-news .icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .section-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 20px 0 8px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .card h2 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .badge-active { background: #e6f9ee; color: #06c755; }
+    .badge-done   { background: #eee; color: #888; }
+    .badge-delivering { background: #fff3e0; color: #e65100; }
+    .meta { font-size: 0.82rem; color: #555; line-height: 1.7; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.82rem; }
+    th { text-align: left; color: #888; font-weight: 600; padding: 4px 0; border-bottom: 1px solid #eee; }
+    td { padding: 4px 0; border-bottom: 1px solid #f5f5f5; }
+    footer { text-align: center; font-size: 0.75rem; color: #aaa; margin-top: 24px; padding-bottom: 16px; }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>🛒 團購力量大</h1>
-  <p>更新時間：2026-05-18（台灣時間）</p>
+  <h1>團購力量大</h1>
+  <p>更新時間：2026-05-19　最近 48 小時無新訊息</p>
 </header>
 
-<!-- 最近 48 小時摘要 -->
-<div class="section">
-  <div class="info-box">
-    📋 <strong>5/18 更新</strong>：今日無新訊息，以下為 48 小時內（5/16–5/17）事件摘要。
-  </div>
-  <div class="info-box">
-    📸 <strong>近期動態（4/27）</strong><br>
-    老温於 12:12–12:16 連發 3 張圖片（可能為新開團或到貨通知，圖片內容待確認）。<br>
-    新成員 <strong>張瓊壬（冠語🐶 辰語🐯 媽咪）</strong> 於 22:12 回傳一張圖片。
-  </div>
-  <div class="notice">
-    🚨 <strong>群組安全通報（4/28）</strong><br>
-    成員 <strong>吳子瑄</strong> 發送詐騙廣告（偽稱台灣在地小企業週轉困難求助），疑似詐騙話術，請老温踢出該成員。<br>
-    <small>⚠️ 上次安全事件（4/21）：王紫萱假清倉特賣廣告，老温已踢出。</small>
-  </div>
+<div class="no-news">
+  <div class="icon">🛒</div>
+  <p>最近 48 小時無新團購訊息</p>
+  <p style="margin-top:6px;font-size:0.8rem;">下次有開團時會自動更新</p>
 </div>
 
-<!-- 到貨配送中 -->
-<div class="section">
-  <h2>到貨配送中</h2>
+<div class="section-title">進行中 / 配送中</div>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">🍢 黑輪酥酥</div>
-      <span class="badge badge-delivering">配送中</span>
-    </div>
-    <div class="info-row">📅 到貨日：<span>2026-04-12</span></div>
-    <div class="info-row">🚚 狀態：<span>老温 @All 通知，晚點配送</span></div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>成員</th>
-          <th>備註</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>全員通知</td>
-          <td>@All，訂購名單待確認</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="total-row">曲曲兒 💖 已回覆感謝</div>
+<div class="card">
+  <div class="badge badge-active">進行中</div>
+  <h2>好市多衛生紙</h2>
+  <div class="meta">
+    供應商：好市多（Costco）<br>
+    價格：$335（特價）<br>
+    開團：2026-03-19　老温代購
   </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">🥜 花生</div>
-      <span class="badge badge-delivering">配送中</span>
-    </div>
-    <div class="info-row">📅 到貨日：<span>2026-04-11</span></div>
-    <div class="info-row">📍 取貨地點：<span>C棟（集中）</span></div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>成員</th>
-          <th>取貨狀態</th>
-          <th>備註</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>陳麗清</td>
-          <td>待確認</td>
-          <td>夜班，老温晚上送</td>
-        </tr>
-        <tr>
-          <td>林小音（翔翔宥宥）</td>
-          <td>待確認</td>
-          <td>4/14 預定取貨（逾期未確認）</td>
-        </tr>
-        <tr>
-          <td>Jie</td>
-          <td>協調中</td>
-          <td>上白班，已回覆可取</td>
-        </tr>
-        <tr>
-          <td>曲曲兒 💖</td>
-          <td>待確認</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>洪妙妙</td>
-          <td>待確認</td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="total-row">共 <strong>5 人</strong>訂購／C棟集中取貨</div>
-  </div>
+  <table>
+    <tr><th>成員</th><th>數量</th></tr>
+    <tr><td>淑娟</td><td>5 包</td></tr>
+  </table>
+  <div class="meta" style="margin-top:8px;">總計：5 包　狀態：等待老温確認</div>
 </div>
 
-<!-- 待確認 -->
-<div class="section">
-  <h2>待確認動態</h2>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">📸 老温圖片訊息（4/27）</div>
-      <span class="badge badge-pending">待確認</span>
-    </div>
-    <div class="info-row">📅 日期：<span>2026-04-27 12:12–12:16</span></div>
-    <div class="info-row">👤 發送者：<span>老温（連發 3 張）</span></div>
-    <div class="info-row">💬 說明：<span>圖片內容未知，可能為新開團公告或到貨通知</span></div>
-    <div class="info-row">📅 回應：<span>張瓊壬（冠語🐶 辰語🐯 媽咪）22:12 回傳圖片一張</span></div>
-    <div class="total-row">請至 LINE「團購力量大」群組確認詳情</div>
+<div class="card">
+  <div class="badge badge-delivering">配送中</div>
+  <h2>花生</h2>
+  <div class="meta">
+    到貨：2026-04-11　老温配送，集中 C 棟
   </div>
+  <table>
+    <tr><th>成員</th><th>備註</th></tr>
+    <tr><td>陳麗清</td><td>夜班，老温晚送</td></tr>
+    <tr><td>林小音</td><td>週一取貨</td></tr>
+    <tr><td>Jie</td><td>上白班，協調中</td></tr>
+    <tr><td>曲曲兒 💖</td><td></td></tr>
+    <tr><td>洪妙妙</td><td></td></tr>
+  </table>
+  <div class="meta" style="margin-top:8px;">總計：5 人　狀態：部分已取</div>
 </div>
 
-<!-- 進行中的團購 -->
-<div class="section">
-  <h2>進行中的團購</h2>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">好市多衛生紙</div>
-      <span class="badge badge-active">進行中</span>
-    </div>
-    <div class="info-row">💰 價格：<span>$335（特價）</span></div>
-    <div class="info-row">🏪 來源：<span>好市多（Costco）代購</span></div>
-    <div class="info-row">📅 開團日：<span>2026-03-19</span></div>
-    <div class="info-row">🔔 截止：<span>待老温確認</span></div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>成員</th>
-          <th>數量</th>
-          <th>備註</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>淑娟</td>
-          <td>5 包</td>
-          <td>3/19 回覆</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="total-row">目前合計：<strong>5 包</strong>／1 人訂購</div>
+<div class="card">
+  <div class="badge badge-delivering">配送中</div>
+  <h2>黑輪酥酥</h2>
+  <div class="meta">
+    到貨：2026-04-12　老温配送
   </div>
+  <table>
+    <tr><th>成員</th><th>備註</th></tr>
+    <tr><td>（全員通知）</td><td>@All 通知，訂購人不詳</td></tr>
+  </table>
+  <div class="meta" style="margin-top:8px;">狀態：配送中</div>
 </div>
 
-<!-- 歷史團購 -->
-<div class="section">
-  <h2>歷史團購</h2>
+<div class="section-title">已完成</div>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">好市多乳酪小餐包</div>
-      <span class="badge badge-done">已結束</span>
-    </div>
-    <div class="info-row">🏪 來源：<span>好市多（Costco）現場代購</span></div>
-    <div class="info-row">📅 日期：<span>2026-03-19</span></div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>成員</th>
-          <th>數量</th>
-          <th>備註</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Pei Wen🌺</td>
-          <td>1 包</td>
-          <td>乳酪口味</td>
-        </tr>
-        <tr>
-          <td>韋如</td>
-          <td>1 包</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>楊馥菁</td>
-          <td>2-3 包</td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="total-row">合計：<strong>4-5 包</strong>・老温＆雅漪現場代購，雅漪已取貨配送</div>
+<div class="card">
+  <div class="badge badge-done">已完成</div>
+  <h2>好市多乳酪小餐包</h2>
+  <div class="meta">
+    到貨：2026-03-19　現場代購（老温 &amp; 雅漪）
   </div>
+  <table>
+    <tr><th>成員</th><th>數量</th></tr>
+    <tr><td>Pei Wen 🌺</td><td>1（乳酪）</td></tr>
+    <tr><td>韋如</td><td>1</td></tr>
+    <tr><td>楊馥菁</td><td>2–3</td></tr>
+  </table>
+  <div class="meta" style="margin-top:8px;">狀態：已配送完成</div>
 </div>
+
+<footer>
+  團購力量大摘要頁　資料僅供參考<br>
+  <a href="https://group-list.web.app" style="color:#06c755;">group-list.web.app</a>
+</footer>
 
 </body>
 </html>
